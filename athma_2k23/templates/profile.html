@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Sign up</title>
+</head>
+<body>
+    <header>
+        <a href="">
+            <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
+        </a>
+        <a href="">SIGN IN</a>
+    </header>
+    <main>
+        <div class="container">
+
+            <form method="post">
+                {% csrf_token %}
+                <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
+                    <input type="text"  id="" class="inputfield" value="{{ profile.user.username }}" readonly>
+                    <input type="email" id="" class="inputfield" value="{{ profile.user.email }}" readonly>
+                    <input type="email" id="" class="inputfield" value="{{ profile.branch }}" readonly>
+                    <input type="email" id="" class="inputfield" value="{{ profile.semester }}" readonly>
+                    <input type="email" id="" class="inputfield" value="{{ profile.phone }}" readonly>
+                    <input type="submit" name="edit" value="Edit" class="btn">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <a href="" class="flinks">ATHMA</a>
+        <a href="" class="flinks">EVENTS</a>
+        <a href="" class="flinks">ABOUT</a>
+        <a href="" class="flinks">HELP</a>
+        <a href="" class="flinks">FAQ</a>
+        <a href="" class="flinks">AWH ENGG</a>
+        <a href="" class="flinks">AWH EVENTS</a>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,140 @@
+.hed{
+    color: aquamarine;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: black;
+}
+main{
+    width: 100%;
+    height: 90vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    min-width: 180px;
+    width: 80%;
+    max-width: 400px;
+    height: 500px;
+    background-image: linear-gradient(#FF2079 ,#440BD4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+form{
+    min-width: 170px;
+    width: 97%;
+    max-width: 390px;
+    height: 490px;
+    background-color: black;
+    border-radius: 6px;
+    text-align: center;
+
+}
+#logo{
+    margin: 20px auto;
+}
+.dropdowns{
+    margin: 5px auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.dropdowns .spec{
+    width: 40%;
+    height: 45px;
+    background-color: black;
+    padding: 5px;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-size: 1.3rem;
+
+}
+
+@media screen and (min-width: 400px) {
+    .dropdowns{
+        gap: 5px;
+    }
+    .dropdowns .spec{
+        width: 42%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .dropdowns{
+        gap: 5px;
+    }
+    .dropdowns .spec{
+        width: 43%;
+    }
+}
+.inputfield, .temp2{
+    margin: 10px auto;
+    width: 90%;
+    height: 55px;
+    padding: 0px 5px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-size: 1.3rem;
+}
+.temp3{
+    color: whitesmoke;
+    padding: 1em;
+}
+.btn{
+    width: 140px;
+    height: 40px;
+    background-image: linear-gradient(#FF2079 ,#440BD4);
+    border: none;
+    border-radius: 6px;
+    margin: 2em;
+    color: white;
+}
+
+.passpara{
+    padding: 2.5em;
+}
+
+.passpara a{
+    text-decoration: none;
+    color: #440BD4;
+}
+::-ms-reveal{
+    filter: invert(100%);
+}
+footer{
+    width: 100%;
+    height: 10vh;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    margin: 0.5em;
+}
+
+@media screen and (min-width: 700px) {
+    footer a{
+        margin: 0.5em 2.5em;
+    }
+}

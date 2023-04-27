@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Sign in</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
+                <input type="text" name="username" id="" class="inputfield" placeholder="Name" required>
+                <input type="password" name="password" id="" class="temp2" placeholder="Password" required>
+                <p class="passpara"><a href="">Forgot password?</a></p>
+
+                {% if error %}
+                    <p class="passpara"> {{ error }} </p>
+                {% endif %}
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+
+
+    </main>
+    <footer>
+        <a href="" class="flinks">ATHMA</a>
+        <a href="" class="flinks">EVENTS</a>
+        <a href="" class="flinks">ABOUT</a>
+        <a href="" class="flinks">HELP</a>
+        <a href="" class="flinks">FAQ</a>
+        <a href="" class="flinks">AWH ENGG</a>
+        <a href="" class="flinks">AWH EVENTS</a>
+    </footer>
+</body>
+</html>

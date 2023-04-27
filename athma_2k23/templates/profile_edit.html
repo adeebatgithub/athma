@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Sign up</title>
+</head>
+<body>
+    <header>
+        <a href="">
+            <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
+        </a>
+        <a href="">SIGN IN</a>
+    </header>
+    <main>
+        <div class="container">
+
+            <form method="post" action="{% url 'profiledit' %}">
+                {% csrf_token %}
+                <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
+                <input type="text" name="username" id="" class="inputfield" value="{{ profile.user.username }}" placeholder="Name" required>
+                    <input type="text" name="username" id="" class="inputfield" value="{{ profile.fullname }}" placeholder="Name" required>
+                    <input type="email" name="email" id="" class="inputfield"  value="{{ profile.user.email }}" placeholder="Email" required>
+                    <div class="dropdowns">
+                        <input list="dept" name="dept"  value="{{ profile.branch }}" placeholder="Dept" class="spec">
+                        <datalist id="dept">
+                          <option value="CSE">
+                          <option value="CE">
+                          <option value="ME">
+                          <option value="ECE">
+                          <option value="EEE">
+                          <option value="MCA">
+                          <option value="MTech">
+                        </datalist>
+                        <input list="sem" name="sem" value="{{ profile.semester }}" placeholder="Sem" class="spec">
+                        <datalist id="sem">
+                          <option value="S2">
+                          <option value="S4">
+                          <option value="S6">
+                          <option value="S8">
+                        </datalist>
+                    </div>
+                    <input type="number" name="phone" id="" class="inputfield" value="{{ profile.phone }}" placeholder="Phone" required>
+                    <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+
+
+    </main>
+    <footer>
+        <a href="" class="flinks">ATHMA</a>
+        <a href="" class="flinks">EVENTS</a>
+        <a href="" class="flinks">ABOUT</a>
+        <a href="" class="flinks">HELP</a>
+        <a href="" class="flinks">FAQ</a>
+        <a href="" class="flinks">AWH ENGG</a>
+        <a href="" class="flinks">AWH EVENTS</a>
+    </footer>
+</body>
+</html>
