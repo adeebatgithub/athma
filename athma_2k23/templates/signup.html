@@ -26,15 +26,12 @@
     
             <form method="post", action="{% url 'signup' %}">
                 {% csrf_token %}
-                {% for field in form %}
                 <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
                 <input type="text" name="username" id="" class="inputfield" placeholder="Name" required>
                 <input type="email" name="email" id="" class="inputfield" placeholder="Email" required>
                 <input type="password" name="password" id="" class="passwrd inputfield" placeholder="Password" required>
-                <input type="password" name="password2" id="" class="passwrd inputfield" placeholder="Confirm Password" required>
-                {% for error in field.error %}
-                    <p style="color:red;"> {{ error }} </p>
-                {% endfor %}
+                <input type="password" name="password_cfrm" id="" class="passwrd inputfield" placeholder="Confirm Password" required>
+                <p style="color:red;"> {{ error }} </p>
                 <input type="submit" value="Submit" class="btn">
             </form>
         </div>

@@ -19,7 +19,7 @@
         <a href="">
             <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
         </a>
-        <a href="">SIGN IN</a>
+        <a href=""></a>
     </header>
     <main>
         <div class="container">
@@ -27,11 +27,13 @@
             <form method="post">
                 {% csrf_token %}
                 <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
-                    <input type="text"  id="" class="inputfield" value="{{ profile.user.username }}" readonly>
-                    <input type="email" id="" class="inputfield" value="{{ profile.user.email }}" readonly>
-                    <input type="email" id="" class="inputfield" value="{{ profile.branch }}" readonly>
-                    <input type="email" id="" class="inputfield" value="{{ profile.semester }}" readonly>
-                    <input type="email" id="" class="inputfield" value="{{ profile.phone }}" readonly>
+                    <input type="text"  id="" class="inputfield" value="Name : {{ profile.user.username }}" placeholder="Name : " readonly>
+                    <input type="email" id="" class="inputfield" value="Email : {{ profile.user.email }}" readonly>
+                    <div class="dropdowns">
+                        <input type="email" id="" class="spec" value="Branch : {{ profile.branch }}" readonly>
+                        <input type="email" id="" class="spec" value="Sem : {{ profile.semester }}" readonly>
+                    </div>
+                    <input type="email" id="" class="inputfield" value="Phone : {{ profile.phone }}" readonly>
                     <input type="submit" name="edit" value="Edit" class="btn">
             </form>
         </div>

@@ -15,18 +15,24 @@
     <title>Sign in</title>
 </head>
 <body>
+    <header>
+        <a href="">
+            <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
+        </a>
+        <a href=""></a>
+    </header>
     <main>
         <div class="container">
 
             <form method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
-                <input type="text" name="username" id="" class="inputfield" placeholder="Name" required>
+                <input type="text" name="username" id="" class="temp2 toptemp" placeholder="Name" required>
                 <input type="password" name="password" id="" class="temp2" placeholder="Password" required>
                 <p class="passpara"><a href="">Forgot password?</a></p>
 
                 {% if error %}
-                    <p class="passpara"> {{ error }} </p>
+                    <p class="errmsg"> {{ error }} </p>
                 {% endif %}
                 <input type="submit" value="Submit" class="btn">
             </form>

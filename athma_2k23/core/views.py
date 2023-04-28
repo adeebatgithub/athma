@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import auth
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from . import models
@@ -42,16 +41,21 @@ class SignupView(View):
         return render(request, "signup.html")
 
     def post(self,request):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = auth.authenticate(username=username, password=raw_password)
+        username = request.POST["username"]
+        email = request.POST["email"]
+        password = request.POST["password"]
+        password_cfrm = request.POST["password_cfrm"]
+
+        if password_cfrm == password:
+            user = models.User(username=username, email=email)
+            user.set_password(password)
+            user.save()
+            auth.authenticate(username=username, password=password)
             auth.login(request, user)
+            profile = models.Profiles(user=user)
+            profile.save()
+
             return redirect('profiledit')
-        else:
-            return render(request, "signup.html", {"form": UserCreationForm()})
 
 class ProfileView(View):
     #@login_required
@@ -64,22 +68,7 @@ class ProfileView(View):
 
     def post(self,request):
         return redirect('profiledit')
-
-class ProfileAdd(View):
-
-    def get(self, request):
-        return render(request, 'profile_edit.html', ctx)
-
-    def post(self, request):
-        fullname = request.POST['username']
-        branch = request.POST['dept']
-        semester = request.POST['sem']
-        phone = request.POST['phone']
-
-        profile = models.Profiles(fullname=fullname, branch=branch, semester=semester, phone=phone)
-        profile.save()
-        return redirect('profile')
-
+    
 class ProfileEdit(View):
 
     def get(self, request):
@@ -97,8 +86,6 @@ class ProfileEdit(View):
         semester = request.POST['sem']
         phone = request.POST['phone']
 
-        print(f"\n\t {request.user} \n")
-
         profile = models.Profiles.objects.get(user=request.user)
         profile.fullname = fullname
         profile.user.email = email
@@ -106,7 +93,5 @@ class ProfileEdit(View):
         profile.semester = semester
         profile.phone = phone
         profile.save()
-
-        print("\n\t post save \n")
 
         return redirect('profile')
