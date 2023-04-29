@@ -1,7 +1,11 @@
+import math
+from random import random
+
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import auth
-from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.mail import send_mail
 
 from . import models
 #from django.http import HttpResponse
@@ -95,3 +99,58 @@ class ProfileEdit(View):
         profile.save()
 
         return redirect('profile')
+
+class GetPasswView(View):
+
+    def generateOTP(self):
+        digits = "0123456789"
+        otp = ""
+        for i in range(4):
+            otp += digits[math.floor(random() * 10)]
+        return otp
+
+    def get(self, request):
+        return render(request, "forgotpasswd.html")
+
+    def post(self, request):
+
+        if "passw" in request.POST:
+            passw = request.POST["passw"]
+            passw_cfrm = request.POST["passw-cfrm"]
+            username = request.POST["username"]
+            if passw_cfrm == passw:
+                user = models.User.objects.get(username=username)
+                user.set_password(passw)
+                user.save()
+                return render(request, "login.html",{"error": "Password changed"})
+
+        if "otp" not in request.POST:
+            otp_gen = self.generateOTP()
+            print(f"\n\t {otp_gen} \n")
+            username = request.POST["username"]
+            email = request.POST["email"]
+
+            user = models.User.objects.get(username=username)
+            if user.email == email:
+                send_mail(
+                    "Your OTP for password reset",
+                    f"Your OTP for password reset is : {otp_gen}",
+                    settings.EMAIL_HOST_USER,
+                    [user.email,],
+                    fail_silently=False
+                )
+                ctx = {
+                    "msg": "your OTP has been sent to your email",
+                    "otp": otp_gen,
+                    "user": user
+                }
+                return render(request,"forgotpasswd.html",ctx)
+        if "otp" in request.POST:
+            otp_get = request.POST["otp"]
+            otp_old = request.POST["otp_old"]
+            username = request.POST["username"]
+            print(f"\n\t {otp_old} : {otp_get} \n")
+            if otp_get == otp_old:
+                user = models.User.objects.get(username=username)
+                return render(request, "forgotpasswd.html", {"otp": "confirm","user":user})
+

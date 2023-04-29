@@ -29,7 +29,7 @@
                 <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
                 <input type="text" name="username" id="" class="temp2 toptemp" placeholder="Name" required>
                 <input type="password" name="password" id="" class="temp2" placeholder="Password" required>
-                <p class="passpara"><a href="">Forgot password?</a></p>
+                <p class="passpara"><a href="{% url 'pass_get' %}">Forgot password?</a></p>
 
                 {% if error %}
                     <p class="errmsg"> {{ error }} </p>
