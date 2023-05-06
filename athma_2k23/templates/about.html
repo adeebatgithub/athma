@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ATHMA'23 | AWH Engineering College</title>
+  <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+  <!-- Core Style Sheets -->
+  <link rel="stylesheet" href="{% static 'assets/css/master.css' %}">
+  <!-- Responsive Style Sheets -->
+  <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+  <!-- Revolution Style Sheets -->
+  <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/settings.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/layers.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'revolution/css/navigation.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/carousel.css' %}">
+
+
+</head>
+
+<body>
+
+
+
+
+
+  <!--== Loader Start ==-->
+  <div id="loader-overlay">
+    <div class="loader">
+      <div class="spinner-double-dot-in"></div>
+    </div>
+  </div>
+  <!--== Loader End ==-->
+
+  <!--== Wrapper Start ==-->
+  <div class="wrapper">
+
+    <!--== Header Start ==-->
+    <nav
+      class="navbar navbar-default navbar-fixed navbar-transparent dark bootsnav on no-full no-border studio brand-center">
+      <div class="container">
+        <!--== Start Header Navigation ==-->
+
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"> <i
+              class="tr-icon ion-android-menu"></i> </button>
+          <div class="logo"> <a href="/"><img class="logo logo-display" src="{% static 'assets/images/typow.png' %}" alt="">
+              <img class="logo logo-scrolled" src="{% static 'assets/images/white typo.png' %}" alt=""> </a> </div>
+        </div>
+        <!--== End Header Navigation ==-->
+
+        <!--== Collect the nav links, forms, and other content for toggling ==-->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+
+          <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
+            <li><a class="page-scroll" href="/">Home</a></li>
+            <li><a class="page-scroll" href="#feature">About</a></li>
+            <li><a class="page-scroll" href="team.html">Team</a></li>
+            <li><a class="page-scroll" href="error.html">Login</a></li>
+          </ul>
+          <!-- <ul>
+            <li><a href="#" id="user-button"><i class="icofont icofont-user"></i> John Doe</a></li>
+          </ul> -->
+
+        </div>
+
+
+        <!--== /.navbar-collapse ==-->
+      </div>
+
+    </nav>
+   <!--== Who We Are Start ==-->
+   <div class="black-bg pt-120 pb-120 relative" id="feature">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 xs-mb-50">
+          <div class="section-title text-left">
+            <h4 class="default-color">The Annual Technical Fest</h4>
+            <h1>ATHMA</h1>
+            <p>
+              ATHMA 23 marks the latest edition of the highly anticipated annual tech fest hosted by AWH Engineering College in Kozhikode. As the 10th iteration of this esteemed event, it promises to be a showcase of cutting-edge technology and innovation. Led by the brightest and most driven students from across the institution, ATHMA 23 boasts a diverse range of technical events, designed to challenge and inspire participants from all walks of life. </p>
+            <p>From robotics to programming, the festival offers a platform for students to demonstrate their skills and share their ideas, while networking with like-minded individuals from across the industry. Come join us for an unforgettable experience, where technology meets creativity, at ATHMA 23.
+            </p>
+            <div class="inline-btn mt-30"><a href="error.html" class="btn btn-sm btn-circle btn-zoom btn-dark-outline ml-0 popup-youtube btn-animated-none"><i class="icofont icofont-ui-play"></i></a>
+            		<p>ATHMA 22</p>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="img-container">
+      <div class="mockup-1">
+        <div class="object object-1">
+          <img src="{% static 'assets/images/portfolio/grid/1.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.1s" alt="img-1" width="395" height="243" />
+        </div>
+        <div class="object object-2">
+          <img src="{% static 'assets/images/portfolio/grid/2.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.2s" alt="img-2" width="384" height="189" />
+        </div>
+        <div class="object object-3">
+          <img src="{% static 'assets/images/portfolio/grid/3.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.3s" alt="img-3" width="395" height="243" />
+        </div>
+        <div class="object object-4">
+          <img src="{% static 'assets/images/portfolio/grid/6.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.4s" alt="img-4" width="209" height="184" />
+        </div>
+        <div class="object object-5">
+          <img src="{% static 'assets/images/portfolio/grid/4.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.5s" alt="img-5" width="395" height="243" />
+        </div>
+        <div class="object object-6">
+          <img src="{% static 'assets/images/portfolio/grid/5.jpg' %}" class="img-responsive wow fadeInRight" data-wow-delay="0.6s" alt="img-1" width="275" height="184" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--== Who We Are End ==-->
+
+
+    <!--== Footer Start ==-->
+    <footer class="footer">
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="row wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-md-8 centerize-col text-center">
+              <div class="footer-logo">
+                <a href="/"><img src="{% static 'assets/images/typow.png' %}" class="img-responsive centerize-col"
+                    alt="Footer Logo" /></a>
+              </div>
+              <div class="copy-right">Made with ❤ Arfaz Khan, Sreekanth S, Gautham Krishna, Adeeb Danish</div>
+              <ul class="social-media mt-30 float-none">
+                <li><a href="#" class="icofont icofont-facebook"></a></li>
+                <li><a href="#" class="icofont icofont-twitter"></a></li>
+                <li><a href="#" class="icofont icofont-behance"></a></li>
+                <li><a href="#" class="icofont icofont-dribble"></a></li>
+                <li><a href="#" class="icofont icofont-linkedin"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--== Footer End ==-->
+
+    <!--== Go to Top  ==-->
+    <a href="javascript:" id="return-to-top"><i class="icofont icofont-arrow-up"></i></a>
+    <!--== Go to Top End ==-->
+
+
+  </div>
+  <!--== Wrapper End ==-->
+
+  <!--== Javascript Plugins ==-->
+
+  <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/js/smoothscroll.js' %}"></script>
+  <script src="{% static 'assets/js/plugins.js' %}"></script>
+  <script src="{% static 'assets/js/master.js' %}"></script>
+
+  <!-- Revolution js Files -->
+  <script src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+  <script src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.actions.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.carousel.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.kenburn.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.layeranimation.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.migration.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.navigation.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.parallax.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.slideanims.min.js' %}"></script>
+  <script src="{% static 'revolution/js/revolution.extension.video.min.js' %}"></script>
+  <!--== Javascript Plugins End ==-->
+
+</body>
+
+</html>

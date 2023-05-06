@@ -12,12 +12,12 @@
 
     link rel="stylesheet" href="{% static 'reset.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Sign up</title>
+    <title>Profile</title>
 </head>
 <body>
     <header>
-        <a href="">
-            <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
+        <a href="/">
+            <img src="{% static 'assets/images/home.png' %}" alt="" id="logo">
         </a>
         <a href=""></a>
     </header>
@@ -26,7 +26,7 @@
 
             <form method="post">
                 {% csrf_token %}
-                <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
+                <img src="{% static 'assets/images/logo.png' %}" alt="" id="logo">
                     <input type="text"  id="" class="inputfield" value="Name : {{ profile.user.username }}" placeholder="Name : " readonly>
                     <input type="email" id="" class="inputfield" value="Email : {{ profile.user.email }}" readonly>
                     <div class="dropdowns">

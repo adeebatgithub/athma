@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>ATHMA'23 | AWH Engineering College</title>
-  <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico.png' %}">
+  <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
 
   <!-- Core Style Sheets -->
   <link rel="stylesheet" href="{% static 'assets/css/master.css' %}">
@@ -86,18 +86,25 @@
         <div class="collapse navbar-collapse" id="navbar-menu">
 
           <ul class="nav navbar-nav navbar-center" data-in="fadeIn" data-out="fadeOut">
-            <li><a class="page-scroll" href="#home">Home</a></li>
-            <li><a class="page-scroll" href="#about">About</a></li>
+            <li><a class="page-scroll" href="/">Home</a></li>
+            <li><a class="page-scroll" href="{% url 'about' %}">About</a></li>
             <li><a class="page-scroll" href="#main">Main Events</a></li>
             <li><a class="page-scroll" href="#blog">Pre Events</a></li>
-            <li><a class="page-scroll" href="#team">Team</a></li>
+            <li><a class="page-scroll" href="team">Team</a></li>
             <li><a class="page-scroll" href="#faq">FAQ</a></li>
             <li><a class="page-scroll" href="#contact">Contact</a></li>
-            <li><a class="page-scroll" href="{% url 'login' %}}">Login</a></li>
+            {% if user.is_authenticated %}
+              <li><a class="page-scroll" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a class="page-scroll" href="{% url 'signup' %}">Signup</a></li>
+            {% endif %}
+
           </ul>
-          <ul>
-            <li><a href="{% url 'profile' %}" id="user-button"><i class="icofont icofont-user"></i> {{ user.username }} </a></li>
-          </ul>
+          {% if user.is_authenticated %}
+            <ul>
+              <li><a href="{% url 'profile' %}" id="user-button"><i class="icofont icofont-user"></i> {{ user.username }} </a></li>
+            </ul>
+          {% endif %}
 
         </div>
 
@@ -575,7 +582,7 @@
           </div>
 
           <div class="col-md-6 col-sm-6 col-xs-12">
-            <form name="contact-form" id="contact-form" action="php/contact.php" method="POST"
+            <form name="contact-form" id="contact-form" action="{% url 'contact' %}" method="POST"
               class="contact-form-style-01">
               <div class="messages"></div>
               <div class="row mt-50">

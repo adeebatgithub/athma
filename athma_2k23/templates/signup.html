@@ -16,17 +16,17 @@
 </head>
 <body>
     <header>
-        <a href="">
-            <img src="{% static 'mediastatic/home.png' %}" alt="" id="logo">
+        <a href="/">
+            <img src="{% static 'assets/images/home.png' %}" alt="" id="logo">
         </a>
-        <a href="">SIGN IN</a>
+        <a href="login">LOGIN</a>
     </header>
     <main>
         <div class="container">
     
             <form method="post", action="{% url 'signup' %}">
                 {% csrf_token %}
-                <img src="{% static 'mediastatic/logo.png' %}" alt="" id="logo">
+                <img src="{% static 'assets/images/logo.png' %}" alt="" id="logo">
                 <input type="text" name="username" id="" class="inputfield" placeholder="Name" required>
                 <input type="email" name="email" id="" class="inputfield" placeholder="Email" required>
                 <input type="password" name="password" id="" class="passwrd inputfield" placeholder="Password" required>

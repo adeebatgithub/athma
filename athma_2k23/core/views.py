@@ -19,6 +19,36 @@ def index(request):
     }
     return render(request, 'index.html', ctx)
 
+def about(request):
+    return render(request, "about.html")
+
+def team(request):
+    return render(request, "team.html")
+
+class ConstactView(View):
+
+    def post(self, request):
+        name = request.POST["name"]
+        email = request.POST["email"]
+        phone = request.POST["phone"]
+        subject = request.POST["subject"]
+        message = request.POST["message"]
+
+        send_mail(
+            f"contacting user on {subject}",
+            f'''Name : {name}
+                phone : {phone}
+                email : {email}
+                
+                {message}''',
+            settings.EMAIL_HOST_USER,
+            [email, ],
+            fail_silently=False
+        )
+        return redirect("index")
+
+
+
 class LoginView(View):
 
     def get(self,request):
@@ -126,7 +156,6 @@ class GetPasswView(View):
 
         if "otp" not in request.POST:
             otp_gen = self.generateOTP()
-            print(f"\n\t {otp_gen} \n")
             username = request.POST["username"]
             email = request.POST["email"]
 
